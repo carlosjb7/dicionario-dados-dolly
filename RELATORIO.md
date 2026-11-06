@@ -32,7 +32,7 @@ O dicionário não pode ser publicado como versão aprovada sem as devidas alter
 
 7. **Alta | Requisitos p.14 PR02; pp.15-16 §6.1; DER p.1**: Substituir obrigação de id_lote em item_pedido pela associação item_pedido_lote. Um item pode consumir vários lotes; um lote pode atender vários itens. FKs compostas garantem o mesmo produto; não inserir id_lote em item_pedido.
 
-8. **Alta | DER p.1**: Adicionar pagamento (7 colunas) e item_pedido_lote (6 colunas), ausentes. Adicionar produto.id_fornecedor, pedido.id_endereco e item_pedido.id_promocao, ausentes. Desenhar os 21 vínculos do DDL, incluindo promoção e associação por lote. O DER original possui 17 tabelas e 99 atributos; o DDL possui 19 e 115.
+8. **Alta | DER p.1**: Adicionar pagamento (6 colunas) e item_pedido_lote (6 colunas), ausentes. Adicionar produto.id_fornecedor, pedido.id_endereco e item_pedido.id_promocao, ausentes. Desenhar os 21 vínculos do DDL, incluindo promoção e associação por lote. O DER original possui 17 tabelas e 100 atributos; o DDL possui 19 e 115.
 
 9. **Alta | DER p.1: entrega, nota_fiscal, comprovante_entrega, estorno**: Mostrar pedido 1 para 0..1 entrega, nota_fiscal e estorno devido a UNIQUE(id_pedido), e entrega 1 para 0..1 comprovante_entrega. Cada filho existente tem exatamente um pai; UNIQUE não obriga a criação do filho. Ligar comprovante_entrega a entrega.id_pedido, e não diretamente a pedido.
 

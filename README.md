@@ -1,6 +1,6 @@
 # Dicionário de dados Dolly
 
-Entrega técnica 1.1 proposta em 05/11/2026. Não publicada. Leia RELATORIO.md antes de aprovar. O documento PDF é uma consolidação por errata: preserva o conteúdo textual original e indica a correção que prevalece. Regras ausentes no DDL não foram implementadas. Papéis e RBAC são propostas.
+Entrega técnica 1.1 proposta em 05/11/2026. Publicado no GitHub Pages: https://carlosjb7.github.io/dicionario-dados-dolly/ . Repositório: https://github.com/carlosjb7/dicionario-dados-dolly . Leia RELATORIO.md antes de aprovar. O documento PDF é uma consolidação por errata: preserva o conteúdo textual original e indica a correção que prevalece. Regras ausentes no DDL não foram implementadas. Papéis e RBAC são propostas.
 
 ## Estrutura exata para uso
 
@@ -53,8 +53,8 @@ Referência oficial do procedimento: https://docs.github.com/en/pages/getting-st
 
 ## Arquivos completos de código
 
-index.html, style.css e script.js estão completos e separados. CODIGO_COMPLETO.md, fora da pasta do site, contém os três blocos integrais em Markdown para copiar. Não há trechos omitidos.
+index.html, style.css e script.js estão completos e separados. CODIGO_COMPLETO.md, na raiz do repositório, contém os três blocos integrais em Markdown para copiar. Não há trechos omitidos.
 
 ## Verificação realizada
 
-Comparação automatizada do inventário DDL com o HTML e JSON, nomes e tipos das FKs, presença de CHECKs, sintaxe JavaScript e caminhos locais. PDFs renderizados para inspeção visual. Prévia interativa pelo navegador da ferramenta indisponível por falha de conexão ao servidor local; a execução dos controles no navegador precisa da conferência de aceite acima. Nenhum banco MySQL foi executado nesta revisão.
+Comparação automatizada do inventário DDL com o HTML e JSON, nomes e tipos das FKs, presença de CHECKs, sintaxe JavaScript e caminhos locais. PDFs renderizados para inspeção visual. Testes no endereço público concluídos: pesquisa por atributo e sem resultados, restauração dos 115 atributos, troca de tema, abertura do DER, carregamento do PNG, zoom por botões e scroll, arraste e reset, fechamento do modal, downloads dos dois PDFs e menu móvel em 390 x 844. Sem rolagem horizontal da página nessa largura; tabelas têm rolagem interna. Nenhum banco MySQL foi executado nesta revisão.
