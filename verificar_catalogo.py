@@ -58,7 +58,7 @@ def main():
             assert any(ck['name'] in row[3] for row in page.tables[name].values()),(name,'CHECK ausente',ck['name'])
     for link in page.links:
         if link.startswith('#'):assert link[1:] in page.ids,('Âncora quebrada',link)
-        elif not re.match(r'^[a-z]+:',link):assert (ROOT/link).is_file(),('Arquivo ausente',link)
+        elif not re.match(r'^[a-z]+:',link):assert (ROOT/link.split('?',1)[0]).is_file(),('Arquivo ausente',link)
     counts={'tabelas':len(expected),'atributos':sum(map(len,expected.values())),'FKs':sum(len(t['fks']) for t in model),'CHECKs':sum(len(t['checks']) for t in model)}
     assert counts=={'tabelas':19,'atributos':115,'FKs':21,'CHECKs':28},counts
     print('OK:',json.dumps(counts,ensure_ascii=False))
