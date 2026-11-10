@@ -1,3 +1,5 @@
+> Atualização de 10/11/2026: o site foi revisado para identificar corretamente o PDF como proposta técnica e a imagem como referência fora do Workbench. O atendimento ao layout oficial da AT2 e a exportação do DER pelo Workbench continuam pendentes. Consulte ENTREGA_GRUPO.md.
+
 # Revisão de coerência e governança
 
 Projeto: Sistema de Gestão Operacional e Vendas. Empresa: Ragi Refrigerantes Ltda. (Dolly), conforme documentação acadêmica, sem verificação de representação institucional. Equipe: Grupo 03. Orientador solicitado: Prof. Dr. Diego Carvalho; documento: Diego Marques de Carvalho. Tecnologia: MySQL/InnoDB/utf8mb4, mínimo 8.0.16 recomendado para CHECK. Data: 05/11/2026. Status: revisão técnica 1.1 proposta, sem aprovação formal.

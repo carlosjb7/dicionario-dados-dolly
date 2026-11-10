@@ -25,7 +25,7 @@ document.querySelector('#search').addEventListener('input', event => {
     links.get(section).hidden = section.hidden;
     if (visible) { tableCount++; columnCount += visible; }
   });
-  document.querySelector('#result-count').textContent = `${tableCount} tabelas · ${columnCount} atributos`;
+  document.querySelector('#result-count').textContent = `${tableCount} ${tableCount === 1 ? 'tabela' : 'tabelas'} · ${columnCount} ${columnCount === 1 ? 'atributo' : 'atributos'}`;
   document.querySelector('#empty').hidden = tableCount > 0;
 });
 const theme = document.querySelector('#theme');
@@ -48,12 +48,15 @@ navToggle.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', String(opened));
 });
 nav.addEventListener('click', event => {
-  if (!event.target.closest('a')) return;
+  const anchor = event.target.closest('a');
+  if (!anchor) return;
   nav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
   event.target.closest('a').classList.add('active');
   if (window.matchMedia('(max-width: 900px)').matches) {
     document.querySelector('#navigation').classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
+    const target = document.getElementById(anchor.hash.slice(1));
+    if (target) { target.tabIndex = -1; target.focus({ preventScroll: true }); }
   }
 });
 const dialog = document.querySelector('#der-modal');
@@ -61,6 +64,7 @@ const viewport = document.querySelector('#viewport');
 const image = document.querySelector('#der-image');
 let scale = 1;
 let fitScale = 1;
+let imageReady = image.complete && image.naturalWidth > 0;
 let x = 0;
 let y = 0;
 let drag = null;
@@ -74,6 +78,7 @@ function reset() {
   draw();
 }
 function zoom(factor, anchorX = viewport.clientWidth / 2, anchorY = viewport.clientHeight / 2) {
+  if (!imageReady || !Number.isFinite(scale) || scale <= 0) return;
   const next = Math.min(Math.max(scale * factor, fitScale * 0.25), Math.max(5, fitScale * 12));
   x = anchorX - (anchorX - x) * next / scale;
   y = anchorY - (anchorY - y) * next / scale;
@@ -92,8 +97,8 @@ dialog.addEventListener('close', () => {
   viewport.classList.remove('dragging');
   document.querySelector('#open-der').focus();
 });
-image.addEventListener('load', () => { if (dialog.open) reset(); });
-image.addEventListener('error', () => { document.querySelector('#der-help').textContent = 'Não foi possível carregar assets/der.png. Confira o nome e o caminho do arquivo; a alternativa textual está disponível abaixo.'; });
+image.addEventListener('load', () => { imageReady = true; if (dialog.open) reset(); });
+image.addEventListener('error', () => { imageReady = false; document.querySelector('#der-help').textContent = 'Não foi possível carregar assets/der.png. Confira o nome e o caminho do arquivo; a alternativa textual está disponível abaixo.'; });
 document.querySelector('#zoom-in').addEventListener('click', () => zoom(1.25));
 document.querySelector('#zoom-out').addEventListener('click', () => zoom(0.8));
 document.querySelector('#zoom-reset').addEventListener('click', reset);
@@ -103,7 +108,7 @@ viewport.addEventListener('wheel', event => {
   zoom(Math.exp(-event.deltaY * 0.0015), event.clientX - rect.left, event.clientY - rect.top);
 }, { passive: false });
 viewport.addEventListener('pointerdown', event => {
-  if (event.button !== 0 || drag) return;
+  if (event.button !== 0 || drag || !imageReady) return;
   drag = { id: event.pointerId, startX: event.clientX, startY: event.clientY, x, y };
   viewport.setPointerCapture(event.pointerId);
   viewport.classList.add('dragging');

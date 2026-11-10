@@ -1,6 +1,6 @@
 # Dicionário de dados Dolly
 
-Entrega técnica 1.1 proposta em 05/11/2026. Publicado no GitHub Pages: https://carlosjb7.github.io/dicionario-dados-dolly/ . Repositório: https://github.com/carlosjb7/dicionario-dados-dolly . Leia RELATORIO.md antes de aprovar. O documento PDF é uma consolidação por errata: preserva o conteúdo textual original e indica a correção que prevalece. Regras ausentes no DDL não foram implementadas. Papéis e RBAC são propostas.
+Revisão do código 1.2 em 10/11/2026. Leia primeiro ENTREGA_GRUPO.md: requisitos no modelo oficial e DER exportado do Workbench continuam pendentes. Publicado no GitHub Pages: https://carlosjb7.github.io/dicionario-dados-dolly/ . Repositório: https://github.com/carlosjb7/dicionario-dados-dolly . Leia RELATORIO.md antes de aprovar. O documento PDF disponível no botão Proposta técnica NÃO atende ao layout original exigido na AT2. Ele é uma consolidação por errata: preserva o conteúdo textual original e indica a correção que prevalece. Regras ausentes no DDL não foram implementadas. Papéis e RBAC são propostas.
 
 ## Estrutura exata para uso
 
@@ -31,7 +31,7 @@ O HTML já contém `<link rel="stylesheet" href="style.css">` e `<script src="sc
 1. Abra index.html; confira 19 tabelas e 115 atributos. A navegação é construída a partir das seções existentes.
 2. Pesquise item_pedido_lote: aparecem os seis atributos da entidade. Pesquise quantidade_estornada: aparece apenas o atributo correspondente. Pesquise um termo inexistente: a mensagem sem resultados deve aparecer. Limpe a busca para recuperar tudo.
 3. Alterne o tema. A escolha é persistida quando o navegador permite localStorage; sem armazenamento, o tema ainda funciona na sessão.
-4. Abra Explorar DER. Use scroll, arraste, Zoom +, Zoom - e Reset. O desenho usa conectores R01-R21 e uma lista de arestas sem cruzamentos. Leia a cardinalidade na lista: pai indica quantos pais o filho admite; filhos indica quantos filhos um pai admite. Há alternativa Mermaid editável. Esc fecha o modal e retorna o foco.
+4. Abra Explorar modelo de referência. Use scroll, arraste, Zoom +, Zoom - e Reset. O desenho usa conectores R01-R21 e uma lista de arestas sem cruzamentos. Leia a cardinalidade na lista: pai indica quantos pais o filho admite; filhos indica quantos filhos um pai admite. Há alternativa Mermaid editável. Esc fecha o modal e retorna o foco.
 5. Em celular, abra Navegar pelas tabelas. As tabelas permitem rolagem horizontal. O diagrama suporta arraste com toque e zoom por botões.
 6. Baixe os dois PDFs e o PNG. Confira todos antes da aprovação.
 
@@ -58,3 +58,8 @@ index.html, style.css e script.js estão completos e separados. CODIGO_COMPLETO.
 ## Verificação realizada
 
 Comparação automatizada do inventário DDL com o HTML e JSON, nomes e tipos das FKs, presença de CHECKs, sintaxe JavaScript e caminhos locais. PDFs renderizados para inspeção visual. Testes no endereço público concluídos: pesquisa por atributo e sem resultados, restauração dos 115 atributos, troca de tema, abertura do DER, carregamento do PNG, zoom por botões e scroll, arraste e reset, fechamento do modal, downloads dos dois PDFs e menu móvel em 390 x 844. Sem rolagem horizontal da página nessa largura; tabelas têm rolagem interna. Nenhum banco MySQL foi executado nesta revisão.
+
+
+## Conferência de coerência
+
+Execute `python verificar_catalogo.py` na pasta do projeto. A verificação compara todas as colunas, tipos, nulabilidade e definições do DDL com JSON e HTML. O script não executa o banco. Veja ENTREGA_GRUPO.md para concluir a documentação no formato exigido pelo professor.
