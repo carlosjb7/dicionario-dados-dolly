@@ -1,6 +1,6 @@
-> Atualização de 10/11/2026: o site foi revisado para identificar corretamente o PDF como proposta técnica e a imagem como referência fora do Workbench. O atendimento ao layout oficial da AT2 e a exportação do DER pelo Workbench continuam pendentes. Consulte ENTREGA_GRUPO.md.
-
 # Revisão de coerência e governança
+
+> **Atualização de situação — 11/11/2026:** este relatório registra a auditoria inicial de 05/11/2026. O DER físico foi posteriormente importado do DDL e exportado pelo MySQL Workbench 8.0.47; ele está em `assets/der.png`, com o modelo editável em `docs/dolly_vendas.mwb`. A AT2 recebida em 10/11/2026 continua com divergências documentadas em `docs/CONFERENCIA_AT2.md`. Onde este relatório mencionar DER pendente, essa parte está superada; as pendências de requisitos e regras de negócio continuam válidas até nova correção e conferência.
 
 Projeto: Sistema de Gestão Operacional e Vendas. Empresa: Ragi Refrigerantes Ltda. (Dolly), conforme documentação acadêmica, sem verificação de representação institucional. Equipe: Grupo 03. Orientador solicitado: Prof. Dr. Diego Carvalho; documento: Diego Marques de Carvalho. Tecnologia: MySQL/InnoDB/utf8mb4, mínimo 8.0.16 recomendado para CHECK. Data: 05/11/2026. Status: revisão técnica 1.1 proposta, sem aprovação formal.
 
@@ -16,7 +16,7 @@ Papéis documentados: Carlos Gomes é líder do grupo; Eduarda Amorim é analist
 
 19 tabelas, 115 colunas, 21 FKs, 28 CHECKs. Nenhuma FK estrutural órfã ou incompatibilidade de tipos nas FKs foi encontrada no script. Não há dados para testar órfãos reais. Todas as FKs usam ON DELETE RESTRICT e ON UPDATE RESTRICT. Nenhum gatilho, procedimento, view ou GRANT foi fornecido. Dicionário fiel ao DDL; nenhum ajuste proposto altera silenciosamente o schema.
 
-O dicionário não pode ser publicado como versão aprovada sem as devidas alterações nos requisitos e no DER. Os arquivos entregues são uma revisão proposta; aprovação e implementação das regras ausentes permanecem pendentes.
+O dicionário não pode ser publicado como versão aprovada sem as devidas alterações nos requisitos. O DER foi exportado pelo Workbench e está disponível no pacote; a aprovação e a implementação das regras ausentes permanecem pendentes.
 
 ## Ajustes manuais por localização
 

@@ -62,7 +62,7 @@ def main():
     counts={'tabelas':len(expected),'atributos':sum(map(len,expected.values())),'FKs':sum(len(t['fks']) for t in model),'CHECKs':sum(len(t['checks']) for t in model)}
     assert counts=={'tabelas':19,'atributos':115,'FKs':21,'CHECKs':28},counts
     print('OK:',json.dumps(counts,ensure_ascii=False))
-    print('DDL, JSON e HTML coerentes no inventário verificado. Pendências de formato AT2 e DER Workbench permanecem em ENTREGA_GRUPO.md.')
+    print('DDL, JSON e HTML coerentes no inventário verificado. O DER já foi exportado pelo MySQL Workbench; as pendências da AT2 permanecem descritas em ENTREGA_GRUPO.md e docs/CONFERENCIA_AT2.md.')
 if __name__=='__main__':
     try:main()
     except (AssertionError,KeyError,ValueError) as error:
